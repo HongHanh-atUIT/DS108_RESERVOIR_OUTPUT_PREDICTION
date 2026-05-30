@@ -1,5 +1,5 @@
 """
-Sau khi tìm được phương pháp điền null thích hợp, lựa chọn phương pháp dùng Linear Interpolation.
+Sau khi tìm được phương pháp điền null thích hợp, lựa chọn phương pháp dùng Rolling Median + Seasonal Fill.
 File này sẽ tự merge 2 df của evn và weather tạo raw_data và lưu lại.
 Sau đó sẽ điền null trong raw_data tạo clean_data và lưu lại.
 """
