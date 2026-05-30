@@ -271,7 +271,7 @@ def run_pipeline(df: pd.DataFrame,
 if __name__ == "__main__":
     # ── Config ───────────────────────────────────────────────
     START_TEST_TIME = "2025-01-01 00:00:00"
-    SRC_FILE = "Data/Clean/clean_data_sbh.csv"
+    SRC_FILE = "Data/Clean/clean_data_st2.csv"
  
     FEAT_COLS = [
         'time', 'ten_ho', 'h_tl', 'h_dbt', 'h_c', 'q_ve', 'sigma_qx', 'q_xt',
@@ -296,8 +296,8 @@ if __name__ == "__main__":
     ]
     
     os.makedirs('Data/Final', exist_ok=True)
-    output_train = 'Data/Final/sbh_train_standard_final.csv'
-    output_test = 'Data/Final/sbh_test_standard_final.csv'
+    output_train = 'Data/Final/st2_train_tree_final.csv'
+    output_test = 'Data/Final/st2_test_tree_final.csv'
  
     # ── Bước 1: Load & Shift ─────────────────────────────────
     print("=" * 55)
@@ -322,7 +322,7 @@ if __name__ == "__main__":
         cols_to_drop=COLS_TO_DROP,
         skew_cols=SKEW_COLS,
         scale_cols=SCALE_COLS,
-        use_standardize=True,
+        use_standardize=False,
         fit_transformers=True,   # fit trên train
         verbose=True,
     )
@@ -333,7 +333,7 @@ if __name__ == "__main__":
         cols_to_drop=COLS_TO_DROP,
         skew_cols=SKEW_COLS,
         scale_cols=SCALE_COLS,
-        use_standardize=True,
+        use_standardize=False,
         fit_transformers=False,  # chỉ transform, không fit lại
         transform_info=info,
         verbose=True,
